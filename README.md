@@ -1,2 +1,3 @@
 # CSC_330_HappyCamper
-<h1>Helllooooo</h1>
+
+Laura Kaplan, Victoria Jaczynski, Gary Feng
