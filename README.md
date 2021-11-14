@@ -1,3 +1,3 @@
-# CSC_330_HappyCamper
+# CSC 330 HappyCamper
 
 Laura Kaplan, Victoria Jaczynski, Gary Feng
