@@ -6,4 +6,5 @@ public class CamperPreferences {
 		// TODO Auto-generated constructor stub
 	}
 
+	// TODAY IS COLD
 }
