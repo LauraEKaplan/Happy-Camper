@@ -1,1 +1,1 @@
-package happyCamper;
+package edu.cuny.csi.csc330.CSC_330_HappyCamper.HappyCamper.src.happyCamper;
