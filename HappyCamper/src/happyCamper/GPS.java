@@ -1,13 +1,17 @@
 package happyCamper;
 
-public class GPS 
+/*------------------------------------------------------------------------------------
+ * GPS Description:
+ * This class acts as the key for most Happy Camper collections objects.
+ * Used in: Campsite, PersonalizedResult, SingleDayForecast, Weather, WeatherConditions
+ *------------------------------------------------------------------------------------*/
+public class GPS
 {
-	private int latitude;
-	private int longitude;
+	/*_________DATA & COLLECTIONS_________*/
+	private double latitude;
+	private double longitude;
 	private String zipCode;
-	private boolean inRange;
-	
-	
+	private boolean inRange; //"in-range" is dependent on information from HappyCamperPreferences
 
 	/*_________CONSTRUCTORS_________*/
 	//Default - Initialize Location Data to 0
@@ -16,10 +20,10 @@ public class GPS
 		setLatitude(0);
 		setLongitude(0);
 		setZipCode("00000");
-	}
-	
+		System.out.println("Please note, GPS has not recieved data. All members initialized to 0.");
+	}	
 	//3-Parameter
-	public GPS (int lat, int lon, String zip)
+	public GPS (double lat, double lon, String zip)
 	{
 		setLatitude(lat);
 		setLongitude(lon);
@@ -27,22 +31,22 @@ public class GPS
 	}
 	
 	/*_________GETTERS & SETTERS_________*/
-	public int getLatitude() 
+	public double getLatitude() 
 	{
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) 
+	public void setLatitude(double latitude) 
 	{
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() 
+	public double getLongitude() 
 	{
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) 
+	public void setLongitude(double longitude) 
 	{
 		this.longitude = longitude;
 	}
@@ -66,8 +70,17 @@ public class GPS
 	{
 		this.inRange = inRange;
 	}
+	
+	/*_________TO STRING_________*/
+	@Override
+	public String toString() 
+	{
+		return "\nGPS [lat= " + latitude + ", lon= " + longitude + ", zip= " + zipCode + "] ";
+	}
 
-	/*_________GETTERS & SETTERS_________*/
-	
-	
+	//Check if searched zip code matches existing zip code.
+	public boolean equalsZip(String zip) 
+	{
+		return zip.equalsIgnoreCase(this.zipCode);
+	}	
 }
