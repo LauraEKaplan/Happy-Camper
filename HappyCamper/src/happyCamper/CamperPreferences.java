@@ -1,103 +1,157 @@
 package happyCamper;
 
-public class CamperPreferences 
+import java.awt.EventQueue;
+
+/*------------------------------------------------------------------------------------
+ * CamperPreferences Description:  
+*   Subclass for the [MVC Implementation: MODEL] for Happy Camper
+*   Interprets the actions received by the view, and asks the model to change state.
+*   Implements 2 listeners: ActionListener and WindowListener.
+*------------------------------------------------------------------------------------*/
+public class CamperPreferences
 {
-	private static boolean preferredRain;
-	private String zipCode;
+	/*_________DATA MEMBERS & COLLECTIONS_________*/
+
+	private HappyCamperView guiInput;
+	private static String zipCode;
+	private static String preferredDate;
+	private static int rangeLowerBound;
+	private static int rangeUpperBound;
+	private static boolean allowRain;
+	private static int preferredTemperatureLowerBound;
+	private static int preferredTemperatureUpperBound;
 	
-	private int rangeLowerBound;
-	private int rangeUpperBound;
-	private int preferredTempLowerBound;
-	private int preferrredTempUpperBound;
-	
-	// boolean to describe if it is raining or not
-	// false = no rain
-	// true = rain
-	
-	public static void noRain() 
-    {
-        preferredRain = false;
-    }
-			
-	public static boolean yesRain()
-    {
-        return preferredRain == true;
-    }
- 	
+	/*_________CONSTRUCTORS_________*/
 	public CamperPreferences() 
 	{
-		// TODO Auto-generated constructor stub
 	}
 
-	// getters and setters
+	//non-default used only for testing
+	public CamperPreferences(String zip, String date, int minDist, int maxDist, boolean rain, int lowT, int highT) 
+	{
+		zipCode = zip;
+		preferredDate = date;
+		rangeLowerBound = minDist;
+		rangeUpperBound = maxDist;
+		allowRain = rain;
+		preferredTemperatureLowerBound = lowT;
+		preferredTemperatureUpperBound = highT;
+	}
+
+	/*_________MAIN_________*/
+	//Used for testing
+	public static void main(String[] args) throws HappyCamperException
+	{
+//		CamperPreferences preferences = new CamperPreferences();
+//		System.out.println(preferences);
+//		CamperPreferences testPreferences = new CamperPreferences("10001", "06/01/20", 50, 150, "no", 60, 90);
+	}
 	
-	public boolean isPreferredRain() 
+	/*_________TOP LEVEL METHODS_________*/
+	public void resetMembers()
 	{
-		return preferredRain;
+		zipCode = null;
+		preferredDate = null;
+		rangeLowerBound = 0;
+		rangeUpperBound = 0;
+		allowRain = false;
+		preferredTemperatureLowerBound = 0;
+		preferredTemperatureUpperBound = 0;
+	
 	}
-
-	public void setPreferredRain(boolean preferredRain) 
-	{
-		this.preferredRain = preferredRain;
-	}
-
+	
+	/*_________GETTERS & SETTERS_________*/	
+	// get Zipcode
 	public String getZipCode() 
 	{
 		return zipCode;
 	}
 
-	public void startZipCode(String zipCode) 
+	// set Zipcode
+	public void setZipCode(String zipCode) 
 	{
-		this.zipCode = zipCode;
+		CamperPreferences.zipCode = zipCode;
 	}
-	
+		
+	// get Preferred Date
+	public String getPreferredDate() 
+	{
+		return preferredDate;
+	}
+
+	// set Preferred Date
+	public void setPreferredDate(String preferredDate) 
+	{
+		CamperPreferences.preferredDate = preferredDate;
+	}
+
+	// get Distance Range Lower Bound
 	public int getRangeLowerBound() 
 	{
 		return rangeLowerBound;
 	}
 
+	// set Distance Range Lower Bound
 	public void setRangeLowerBound(int rangeLowerBound) 
 	{
-		this.rangeLowerBound = rangeLowerBound;
+		CamperPreferences.rangeLowerBound = rangeLowerBound;
 	}
 
+	// get Distance Range Upper Bound
 	public int getRangeUpperBound() 
 	{
 		return rangeUpperBound;
 	}
 
-	public void setRangeUpperBound(int rangeUpperBound) 
+	// set Distance Range Upper Bound
+	public void setRangeUpperBound(int rangeUpperBound)
 	{
-		this.rangeUpperBound = rangeUpperBound;
-	}
-
-	public int getPreferredTempLowerBound() 
-	{
-		return preferredTempLowerBound;
-	}
-
-	public void setPreferredTempLowerBound(int preferredTempLowerBound) 
-	{
-		this.preferredTempLowerBound = preferredTempLowerBound;
-	}
-
-	public int getPreferrredTempUpperBound() 
-	{
-		return preferrredTempUpperBound;
-	}
-
-	public void setPreferrredTempUpperBound(int preferrredTempUpperBound) 
-	{
-		this.preferrredTempUpperBound = preferrredTempUpperBound;
+		CamperPreferences.rangeUpperBound = rangeUpperBound;
 	}
 	
-	//main
-	public static void main(String[] args) 	
+	// set whether or not rain is allowed
+	public void setAllowRain(boolean allowRain)
 	{
-		
-		// return rain preference 
-		System.out.println(preferredRain); 
+		CamperPreferences.allowRain = allowRain;
+	}
 	
+	// get whether or net rain is allowed
+	public boolean getAllowRain() 
+	{
+		return allowRain;
 	}
 
+	// get Preferred Temperature Range Lower Bound
+	public int getPreferredTemperatureLowerBound() 
+	{
+		return preferredTemperatureLowerBound;
+	}
+
+	// set Preferred Temperature Range Lower Bound
+	public void setPreferredTemperatureLowerBound(int preferredTemperatureLowerBound) 
+	{
+		CamperPreferences.preferredTemperatureLowerBound = preferredTemperatureLowerBound;
+	}
+
+	// get Preferred Temperature Range Upper Bound
+	public int getPreferredTemperatureUpperBound() 
+	{
+		return preferredTemperatureUpperBound;
+	}
+
+	// set Preferred Temperature Range Upper Bound
+	public void setPreferredTemperatureUpperBound(int preferredTemperatureUpperBound) 
+	{
+		CamperPreferences.preferredTemperatureUpperBound = preferredTemperatureUpperBound;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "Camper Preferences: \n\tStarting Zip Code =" + getZipCode() + ", Preferred Travel Date =" + getPreferredDate() 
+				+ ", Minimum Distance Away =" + getRangeLowerBound() + ", Maximum Distance Away =" + getRangeUpperBound() 
+				+ ", Rainy Campsites Allowed? =" + getAllowRain() 
+				+ ", Minimum Temp =" + getPreferredTemperatureLowerBound()
+				+ ", MaximumTemp =" + getPreferredTemperatureUpperBound() + "\n";
+	}
 }
