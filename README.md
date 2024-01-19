@@ -1,4 +1,5 @@
 # CSC 330 Happy Camper
+## This code currently functions as a prototype model. The weather data is static historic, and date data is frozen to match.
 
 Laura Kaplan, Victoria Jaczynski, Gary Feng
 
@@ -8,7 +9,7 @@ Laura Kaplan, Victoria Jaczynski, Gary Feng
 <br>	Without GUI: Functionality without the GUI should be tested from the PersonalizedResult class.
 <br>	Testing Classes: Most classes are set up with their own commented-out main method for individual class testing.
 	
-	There are 3 file paths which need to be adjusted to the user's specific file-path. They are located in the classes:
+	There are 3 files which need to be adjusted to the user's specific file-path. They are located in the classes:
 		- Weather
 		- Campsite
 		- ZipCodeDatabase
@@ -20,5 +21,5 @@ Laura Kaplan, Victoria Jaczynski, Gary Feng
 <br>	More campsites available at ranges over 100 miles from NYC.
 <br>
 <br><u>Realism Note:</u>
-<br>	Some campsite names associated with multiple zip codes due to the way we combined our datasets. 
+<br>	Some campsite names associated with multiple zip codes due the nature of our datasets. 
 <br>	This issue would not be present with more accurate datasets.
